@@ -31,3 +31,34 @@ tools get file contents instead of just reading it raw way.
 Task 2
 ======
 
+This application is framework agnostic. The application is decoupled and
+doesn't depends a specific framework.
+
+The application code is available at **task2/app.py**.
+
+
+Tests
+=====
+
+The tests aren't written using **pytest** style but the discovery is made by it
+with some *fancy plugins*.
+
+Tests for HTTP API calls unavailable.
+
+
+Request Logs
+============
+
+The request logs aren't being logged as database entries, but using the classic
+logging system on **task2.app** package.
+
+
+Caching Layer
+=============
+
+The cache layer is available at **task2/cache.py**.  There is no sharing
+persistence across running instances but the basic funcionally is there.
+(Connect to a memcached server doesn't looks like a problem).
+
+NO BENCHMARKS available.
+
