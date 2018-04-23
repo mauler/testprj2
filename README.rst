@@ -43,7 +43,15 @@ Tests
 The tests aren't written using **pytest** style but the discovery is made by it
 with some *fancy plugins*.
 
-Tests for HTTP API calls unavailable.
+Tests for HTTP API calls unavailable. I setup a simple Flask application.
+
+The tests can be executed using:
+
+    make test
+
+or
+
+    python3.6 setup.py test
 
 
 Request Logs
