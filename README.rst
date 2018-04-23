@@ -72,3 +72,16 @@ I did use unittest.mock functions available only 3.6 version.
 Run tox using:
 
     make tox-tests
+
+
+Docker Services
+===============
+
+There is docker service called **http** there inherits from **python:3.6**
+image. This service executes **task2-http-server** at port *5000*.
+
+**task2-http-server** calls **execute** method at **task2/server.py**.
+
+Execute it using:
+
+    make docker-run
