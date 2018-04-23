@@ -18,7 +18,7 @@ def cache(fn):
     return decorated
 
 
-class App:
+class Task2:
     def __init__(self):
         self._cache = Cache()
         self._calls = 0
@@ -42,16 +42,20 @@ class App:
         """Computes an app call."""
         self._calls += 1
 
-    def get_fibonacci(self, number):
+    def get_fibonacci(self, number, start=0):
         """Returns the fibonacci sequence for the desired number.
 
         :param number:  the desired number
         :type number: int
+
+        :param start:  the start of the sequence
+        :type start: int
+
         :returns: The fibonacci sequence
         :rtype: List[int]
         """
         self._compute_call()
-        return [self._get_fibonacci_piece(n) for n in range(number)]
+        return [self._get_fibonacci_piece(n) for n in range(start, number)]
 
     def get_app_status(self):
         """Returns general app running status. """

@@ -1,12 +1,12 @@
 from unittest.mock import patch
 import unittest
 
-from task2.app import App
+from task2.app import Task2
 
 
-class TestApp(unittest.TestCase):
+class TestTask2(unittest.TestCase):
     def setUp(self):
-        self.app = App()
+        self.app = Task2()
 
     def test_get_fibonacci(self):
         self.assertEqual(self.app.get_fibonacci(4), [0, 1, 1, 2])
