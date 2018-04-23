@@ -1,4 +1,9 @@
+import logging
+
 from task2.cache import Cache
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 def cache(fn):
@@ -7,12 +12,13 @@ def cache(fn):
     def decorated(app, *args, **kwargs):
         cachekey = app._cache.make_key(fn.__name__, *args, **kwargs)
         timeout = app._cache.get_key_info(cachekey)
-        print("timeout", timeout, repr(timeout))
         if timeout is None:
             value = fn(app, *args, **kwargs)
+            LOGGER.debug('Setting cache value: {}'.format(cachekey))
             app._cache.set_key(cachekey, value)
             return value
         else:
+            LOGGER.debug('Retrieving cache value: {}'.format(cachekey))
             return app._cache.get_key_value(cachekey)
 
     return decorated
@@ -55,6 +61,8 @@ class Task2:
         :rtype: List[int]
         """
         self._compute_call()
+        LOGGER.info('Generating fibonacci for range: {}, {}'.format(start,
+                                                                    number))
         return [self._get_fibonacci_piece(n) for n in range(start, number)]
 
     def get_app_status(self):
