@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for uid in $(getent passwd | cut -f3 -d:);
+do
+    shell=$(getent passwd $uid | cut -f7 -d:);
+    if grep -q $shell /etc/shells; then
+        user=$(getent passwd $uid | cut -f1);
+        echo "$user\t$shell";
+    fi
+
+done
