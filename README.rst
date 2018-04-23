@@ -62,3 +62,13 @@ persistence across running instances but the basic funcionally is there.
 
 NO BENCHMARKS available.
 
+
+Setup tox
+=========
+
+I added tox, but only let it tests python 3.6 (the verison I did the project).
+I did use unittest.mock functions available only 3.6 version.
+
+Run tox using:
+
+    make tox-tests
